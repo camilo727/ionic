@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="login-section ion-padding">
+    <form [formGroup]="formularioRetro" (keyup.enter)="guardar()">
+      <div class="heading ion-padding">
+        <h1>Registro</h1>
+      </div>
+      <div class="login-form ion-padding">
+        <div class="form-input">
+          <ion-icon name="mail-outline"></ion-icon>
+          <ion-item>
+            <ion-label pasition="floating">Email</ion-label>
+            <ion-input fromControlName="email"></ion-input>
+          </ion-item>
+        </div>
+        <div class="form-input">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-item>
+            <ion-label pasition="floating">Contraseña</ion-label>
+            <ion-input fromControlName="password" type="password"></ion-input>
+          </ion-item>
+        </div>
+        <div class="form-input">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-item>
+            <ion-label pasition="floating">Confirmar Contraseña</ion-label>
+            <ion-input
+              fromControlName="Confirmarpassword"
+              type="password"
+            ></ion-input>
+          </ion-item>
+        </div>
+      </div>
+      <div id="action-buttons ion-padding">
+        <ion-button (click)="guardar()" size="large" class="login-button">Registro</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>
