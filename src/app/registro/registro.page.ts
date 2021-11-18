@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormControl,Validators,FormBuilder } from '@angular/forms';
-import {  Router }from '@angular/router';
-import { AlertController,NavController } from '@ionic/angular';
-
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -10,38 +13,42 @@ import { AlertController,NavController } from '@ionic/angular';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
-  formularioRetro:FormGroup;
-  constructor(public formBuilder:FormBuilder,public alertController:AlertController,
-    public navControl:NavController) {
-      this.formularioRetro=this.formBuilder.group({
-        'email': new FormControl('',Validators.compose([
-          Validators.required,
-          Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
-        ])),
-        'password': new FormControl('',Validators.required),
-        'Confirmarpassword': new FormControl('',Validators.required)
-      })
-     }
+  formularioRegistro: FormGroup;
 
-  ngOnInit() {
+  constructor(public fb: FormBuilder, public alertController: AlertController) {
+    this.formularioRegistro = this.fb.group({
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      confirmacionPassword: new FormControl('', Validators.required),
+    });
   }
-  async guardar(){
-    if(this.formularioRetro.valid!=false){
-      var formRegistro= this.formularioRetro.value;
-      var user = {
-        email:formRegistro.email,
-        password:formRegistro.password,
-        Confirmarpassword:formRegistro.Confirmarpassword
-      }
-      localStorage.setItem('user',JSON.stringify(user))
-    }
-    else{
-      const alert= await this.alertController.create({
-        message:'debe ingresar email y password',
-        buttons:['Ok']
+
+  ngOnInit() {}
+
+  async guardar() {
+    // Obtener los valores de nuestro formulario
+    const date = this.formularioRegistro.value;
+
+    // Configuramos la alerta, lo que queremos mostrar y el tipo de alerta
+    if (this.formularioRegistro.invalid) {
+      const alert = await this.alertController.create({
+        header: 'Datos incompletos',
+        message: 'Tienes que llenar todos los datos',
+        buttons: ['Aceptar'],
       });
-      await alert.present();
-    }
-  }
 
+      await alert.present();
+      return;
+    }
+
+    // Si el formulario es valido, se crea un obeto usuario
+    // Que sirve para guardar los atributos de los que
+    // queremos obtener el valor (email y password).
+    const usuario = {
+      email: date.email,
+      password: date.password,
+    };
+
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+  }
 }

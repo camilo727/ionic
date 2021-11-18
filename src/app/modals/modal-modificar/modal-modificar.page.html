@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <center>Formulario de Modificar</center>
+     </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1> <center> <b>{{datos.title}}</b></center></h1>
+ 
+ 
+  <!-- <form form [formGroup]="form">
+    <ion-item>
+      <ion-label>Titulo</ion-label> 
+      <ion-input formControlName="titulo"></ion-input>
+    </ion-item>
+  </form> -->
+  <!-- <p class="ion-padding">{{ form.controls.titulo.value }}</p> -->
+  <!-- <ion-item>
+    <ion-label>Titulo</ion-label> 
+    <ion-input [formControl]="nombre" value="{{datos.title}}"></ion-input>
+   
+  </ion-item>
+  <p class="ion-padding">{{ nombre.value }}</p>
+  <p class="ion-text-center">
+    <ion-button (click)="cambiarNombre()">Cambiar nombre</ion-button>
+  </p> -->
+  <form [formGroup]="form" (ngSubmit)="Modificar(datos)">
+    <ion-item>
+      <ion-label>Titulo:</ion-label>
+      <ion-input  type="text" formControlName="titulo"  value="{{datos.title}}"></ion-input>
+    </ion-item>
+    <p class="ion-text-center">
+      <ion-button type="submit">Guardar</ion-button>
+    </p>  
+  </form>
+</ion-content>

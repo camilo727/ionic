@@ -1,37 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="arrow-back"> </ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/registro">Sign up</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <div class="login-section ion-padding">
-    <div class="heading ion-padding">
-      <h1>Bienvenido a la tienda</h1>
-      <p>Producto originales</p>
-    </div>
-    <div class="login-form ion-padding">
-      <form [formGroup]="formularioLogin">
-        <div class="form-input">
-          <ion-icon name="mail-outline"></ion-icon>
-          <ion-item>
-            <ion-label pasition="floating">Email</ion-label>
-            <ion-input fromControlName="email"></ion-input>
-          </ion-item>
-        </div>
-        <div class="form-input">
-          <ion-icon name="lock-closed-outline"></ion-icon>
-          <ion-item>
-            <ion-label pasition="floating">Contraseña</ion-label>
-            <ion-input fromControlName="password" type="password"></ion-input>
-          </ion-item>
-        </div>
-      </form>
-    </div>
-    <div id="action-buttons ion-padding">
-      <ion-button size="large" class="login-button">login</ion-button>
-      <p>recuperar contraseña?</p>
-      <ion-button
-        class="sinup-button"
-        size="large"
-        fill="outline"
-        routerLink="/registro"
-        >Registrate</ion-button
-      >
-    </div>
+  <div id="logo">
+    <img id="img" src="assets/contra-reembolso.png" />
+  </div>
+  <span id="text">Inicia sesión</span>
+
+  <form id="main__form" [formGroup]="formularioLogin">
+    <ion-input
+      formControlName="email"
+      shape="round"
+      class="input"
+      type="email "
+      placeholder="Email"
+    >
+    </ion-input>
+    <ion-input
+      formControlName="password"
+      shape="round"
+      class="input"
+      type="password"
+      placeholder="Password"
+    >
+    </ion-input>
+  </form>
+  <div id="buttons">
+    <button class="button" (click)="ingresar()">Iniciar sesión</button>
+
+    <button class="register" routerLink="/registro">
+      No te has registrado?<span class="click"> Click Aquí</span>
+    </button>
   </div>
 </ion-content>

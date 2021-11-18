@@ -1,70 +1,127 @@
-ion-content {
-    --background:linear-gradient(0deg, rgba(228, 27, 27, 0.7),rgb(243, 83, 83)),
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
 }
-.login-section{
-    height:88vh;
+
+ion-toolbar {
+  --background: #fbfbfb;
+  text-transform: initial;
+}
+
+ion-content {
+  --background: #fbfbfb;
+
+  #logo {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
     width: 100%;
-    max-width: 500px;
-    background-color:#ffff;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    position:fixed;
-    margin: auto;
-    border-top-left-radius:16px ;
-    border-top-right-radius:16px;
-    .heading{
-        margin-top:10px;
-        h1{
-            font-size:1.6rem;
-            font-weight: border;
-        }
-        p{
-            margin-top: 10px;
-            font-size: 1rem;
-            color: #7b7b7b;
-        }
-        .login-form{
-            .form-input{
-                position: relative;
-                margin: bottom 5px;
-                ion-item::part(native){
-                    padding-left: 0;
-                }
-                ion-icon{
-                    position: absolute;
-                    top: 38px;
-                    z-index: 2;
-                    font-size:1.2rem;
-                    left:5px;
-                }
-                ion-label{
-                    position: absolute;
-                    margin-left: 25px;
-                    font-weight: bolder;
-                    font-size: 0.8rem;
-                    top: 3px;
-                }
-                ion-input{
-                    font-size: 0.8rem;
-                    --padding-start:36px;
-                    --padding-top:36px;
-                    color: #7b7b7b;
-                }
-            }
-        }
-        #action-buttons{
-            text-align: center;
-            .login-button{
-                --background: rgb(240, 240, 54);
-                width: 100%;
-                font-weight: bold;
-            }
-            p{
-                margin-top:15px;
-                font-size:1rem;
-                color: #7b7b7b;
-            }
-        }
-    }
+  }
+
+  #img {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    mix-blend-mode: multiply;
+  }
+
+  #text {
+    margin-top: 40px;
+    display: inline-block;
+    color: #a3a1a1;
+    width: 100%;
+    text-align: center;
+    font-weight: 400;
+  }
+
+  .btn__login {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column wrap;
+    margin-top: 20px;
+  }
+
+
+  .x1,
+  .x2 {
+    color: rgb(255, 255, 255);
+  }
+
+
+  #main__form {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .input {
+    width: 80%;
+    background: transparent !important;
+    padding: 12px 0px;
+    background: #ffffff;
+    border: 1px solid rgba(206, 206, 206, 0.5);
+    box-sizing: border-box;
+    border-radius: 10px;
+    color: #000;
+    margin-top: 20px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #757575;
+  }
+
+  .input:hover {
+    border: 1px solid rgba(13, 238, 81, 0.5);
+  }
+
+  ::placeholder {
+    padding-left: 8px;
+    font-size: 14px;
+    color: #757575;
+  }
+
+  #buttons {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  #buttons .button{
+    text-transform: uppercase;
+    margin-top: 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: #2dd36f;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+  }
+
+  .register {
+    margin-top: 20px;
+    color: #757575;
+    background: #fbfbfb;
+    font-weight: 400;
+    width: 80%;
+  }
+
+  .click {
+    color: #1bb6e6;
+    font-weight: bold;
+  }
+
+
+
+
 }
